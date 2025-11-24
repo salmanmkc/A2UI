@@ -161,27 +161,13 @@ class ContactAgentExecutor(AgentExecutor):
                                     f"Found {len(json_data)} messages. Creating individual DataParts."
                                 )
                                 for message in json_data:
-                                    final_parts.append(
-                                        Part(
-                                            root=DataPart(
-                                                data=message,
-                                                mime_type=a2ui_MIME_TYPE,
-                                            )
-                                        )
-                                    )
+                                    final_parts.append(create_a2ui_part(message))
                             else:
                                 # Handle the case where a single JSON object is returned
                                 logger.info(
                                     "Received a single JSON object. Creating a DataPart."
                                 )
-                                final_parts.append(
-                                    Part(
-                                        root=DataPart(
-                                            data=json_data,
-                                            mime_type=a2ui_MIME_TYPE,
-                                        )
-                                    )
-                                )
+                                final_parts.append(create_a2ui_part(json_data))
 
                     except json.JSONDecodeError as e:
                         logger.error(f"Failed to parse UI JSON: {e}")

@@ -26,6 +26,15 @@ _CORE_PATH = "a2ui.org/ext/a2a-ui/v0.1"
 URI = f"https://{_CORE_PATH}"
 a2ui_MIME_TYPE = "application/json+a2ui"
 
+def create_a2ui_part(a2ui_data: dict[str, Any]) -> a2a_types.Part:
+    return a2a_types.Part(
+        root=a2a_types.DataPart(
+            data=a2ui_data,
+            metadata={
+                "mimeType": a2ui_MIME_TYPE,
+            },
+        )
+    )
 
 class a2uiExtension:
     """A generic a2ui UI extension that activates UI mode."""
