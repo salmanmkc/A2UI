@@ -1,3 +1,62 @@
+<style>
+  .home-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+  }
+
+  .app-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 16px; /* Space between items */
+  }
+
+  .app-nav li {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .app-nav li:hover {
+    background-color: #eee;
+  }
+  .hero-message {
+    font-weight: bold;
+    text-align: center;
+  }
+  .hero-message h1 {
+    font-size: 3rem;
+  }
+  .hero-message p {
+    font-size: 1.5rem;
+    font-weight: lighter;
+  }
+</style>
+<header class="home-page-header">
+  <p>A2UI Gallery</p>
+  <nav class="app-nav">
+    <ul>
+      <li>Library</li>
+      <li>Gallery</li>
+      <li>GitHub</li>
+    </ul>
+  </nav>
+</header>
+<section>
+  <div class="hero-message">
+    <h1>A2UI Component Gallery</h1>
+    <p>Building blocks and examples for Agent Driven UIs</p>
+  </div>
+  <section>
+    <app-library />
+  </section>
+</section>
+
+<!--
 <div class="app-container">
   <div class="main-sidebar">
     <h1 class="app-title">A2UI Gallery</h1>
@@ -10,9 +69,10 @@
       </div>
     </div>
   </div>
-
+  
   <div class="content-area">
     <app-library *ngIf="currentView === 'library'"></app-library>
     <app-gallery *ngIf="currentView === 'gallery'"></app-gallery>
   </div>
 </div>
+-->

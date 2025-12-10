@@ -1,0 +1,47 @@
+.block-card {
+  border: solid 1px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  background: white;
+}
+
+.block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.block-card .block-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.block-gallery {
+    margin: 0 2rem 0 2rem;
+  column-width: 320px;
+  column-gap: 1rem;
+}
+
+dialog {
+  min-width: 800px;
+  min-height: 600px;
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+dialog .dialog-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr; /* Two equal columns with a 1px separator */
+  gap: 1rem;
+}
+
+dialog .dialog-content-grid > .block-surface {
+  border-right: 1px solid #ccc; /* Separator matching card border */
+}

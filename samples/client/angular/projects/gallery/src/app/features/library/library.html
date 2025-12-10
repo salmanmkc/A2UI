@@ -1,0 +1,53 @@
+<div class="library-container">
+  <div class="sidebar">
+    <h2>Components</h2>
+    <div class="nav-list">
+      <div *ngFor="let category of categories">
+        <div class="category-header">{{ category.name }}</div>
+        <div
+          *ngFor="let sample of category.samples"
+          class="nav-item"
+          [class.active]="activeSection === sample.name"
+          (click)="scrollTo(sample.name)"
+        >
+          {{ sample.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content" (scroll)="onScroll($event)">
+    <div class="component-list">
+      <div *ngFor="let category of categories">
+        <div class="category-section">
+          <h2>{{ category.name }}</h2>
+          <div
+            *ngFor="let sample of category.samples"
+            class="component-section"
+            [id]="'section-' + sample.name"
+          >
+            <div class="section-header">
+              <h3>{{ sample.name }}</h3>
+              <button class="json-toggle" (click)="toggleJson(sample.name)">
+                {{ showJsonId === sample.name ? 'Hide JSON' : 'Show JSON' }}
+              </button>
+            </div>
+
+            <div class="content-wrapper" [class.with-json]="showJsonId === sample.name">
+              <div class="preview-card">
+                <a2ui-surface
+                  [surfaceId]="'lib-' + sample.name"
+                  [surface]="sample.surface"
+                ></a2ui-surface>
+              </div>
+
+              <div class="json-pane" *ngIf="showJsonId === sample.name">
+                <pre>{{ getJson(sample.surface) }}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
