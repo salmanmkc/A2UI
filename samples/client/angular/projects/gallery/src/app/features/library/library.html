@@ -3,7 +3,6 @@
     <article class="block-card" (click)="openDialog(block)">
       <section class="block-header">
         <p class="block-title">{{ block.name }}</p>
-        <button class="block-view-code">...</button>
       </section>
       <a2ui-surface [surfaceId]="'lib-' + block.name" [surface]="block.surface" />
     </article>
