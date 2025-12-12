@@ -25,7 +25,7 @@ import { GalleryComponent } from './features/gallery/gallery.component';
   imports: [LibraryComponent, GalleryComponent]
 })
 export class App {
-  readonly currentView = signal<'library' | 'gallery'>('gallery');
+  readonly currentView = signal<'library' | 'gallery'>('library');
 
   setView(view: 'library' | 'gallery') {
     this.currentView.set(view);
